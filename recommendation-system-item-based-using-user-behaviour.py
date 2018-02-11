@@ -1,6 +1,6 @@
 
 #Item based collaborating filtering
-# Method 1
+# Method 2	
 #In this method we will create recommended movies list for user behaviour
 import pandas as pd
 
