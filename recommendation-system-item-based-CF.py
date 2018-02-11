@@ -1,4 +1,6 @@
 #Item based collaborating filtering
+# Method 1
+#In this method we will create recommended movies list for a movies
 import pandas as pd
 
 r_cols = ['user_id', 'movie_id', 'rating']
@@ -77,3 +79,5 @@ df.head()
 print(df.sort_values(['similarity'], ascending=False)[:15])
 
 #And you will get recommended movieslist
+
+#It will give some warning 
