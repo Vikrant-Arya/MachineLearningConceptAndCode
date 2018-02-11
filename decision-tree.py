@@ -55,7 +55,25 @@ dot_data = StringIO()
 tree.export_graphviz(clf, out_file=dot_data,  
                          feature_names=features)  
 graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  
-Image(graph.create_png())  
+Image(graph.create_png())  	
 
 #In out put image https://github.com/coderc/MachineLearningConceptAndCode/blob/master/output-images/decision-tree.png
 #Attribute ares : features and gini(entropy), values(not-hired,hired), sample--> total input
+
+
+
+"""Ensemble learning: using a random forest
+We'll use a random forest of 10 decision trees to predict employment of specific candidate profiles:
+"""
+from sklearn.ensemble import RandomForestClassifier
+
+clf = RandomForestClassifier(n_estimators=10)
+clf = clf.fit(X, y)
+
+#Predict employment of an employed 10-year veteran
+print (clf.predict([[10, 1, 4, 0, 0, 0]]))
+#...and an unemployed 10-year veteran
+print (clf.predict([[10, 0, 4, 0, 0, 0]]))
+
+
+#Result will not be same everytime. But most probably unemployed persone will not get job
